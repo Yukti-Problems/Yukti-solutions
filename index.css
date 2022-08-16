@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+}
+
+span {
+    size: 1rem;
+}
+
+.navbar {
+  background-color: whitesmoke;
+  width: 100vw !important;
+}
+
+.container {
+  background-color: lightgray !important;
+}
+
+.but {
+  display: inline-block !important;
+  width: 300px;
+  background-color: #f75700 !important;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.logg {
+  display: flex;
+  flex-direction: unset;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
