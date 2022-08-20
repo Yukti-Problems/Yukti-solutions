@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/t_500x300.abf5001e.jpg">
+  
+  <title class="font-ubuntu">Branch-Approval &bull; AICTE</title>
+  <link rel="stylesheet" href="/assets/style.be38e67e.css">
+  <link rel="stylesheet" href="/assets/branch.css" />
+</head>
+
+<body class="font-ubuntu">
+
+  <!-- Header -->
+  <header class="p-3 bg-slate-200">
+    <img src="/assets/aicte.1017085a.png" alt="" class="">
+    
+  </header>
+
+  <!-- Container -->
+  <div class="myClass">
+    <h2>For Current Branch</h2>
+    <!-- Card 1 -->
+    <div class="classItem">
+    <label for="Branch">Choose a Branch:</label>
+
+    <select name="Branch" id="Branch">
+      <option value="Mechanical">Mechanical</option>
+      <option value="Civil">Civil</option>
+      <option value="AI">AI</option>
+      <option value="CSE">CSE</option>
+    </select>
+    </div>
+
+    <div class="classItem">
+        <input type="radio" id="Increase" name="branchOperation" value="Increase">
+        <label for="Increase">Increase</label><br>
+        <input type="radio" id="Decrease" name="branchOperation" value="Decrease">
+        <label for="Decrease">Decrease</label>
+        <input type="radio" id="RemainSame" name="branchOperation" value="RemainSame">
+        <label for="RemainSame">Remain Same<label>
+    </div>
+
+    <div class="classItem">
+        <label for="seats">Seats</label>
+        <input type="number" id="seats" name="seats" min="30">
+    </div>
+    <button type="submit">Apply</button>
+  </div>
+
+</body>
+
+</html>

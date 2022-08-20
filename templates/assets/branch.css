@@ -1,0 +1,28 @@
+.myClass {
+    background-color: lightgray;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border-color: gray;
+    text-align: center;
+}
+
+.myClass > button {
+    border-radius: 3px;
+    padding: 5px;
+    
+    background-color: orange;
+}
+
+.classItem {
+    padding: 5px;
+    margin: 5px;
+    align-self: center;
+}
+
+.myClass > button:hover {
+    background-color: gray;
+}

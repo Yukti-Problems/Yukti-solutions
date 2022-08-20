@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home.apps.HomeConfig',
+    'collegelogin.apps.CollegeloginConfig',
+    'adminlogin.apps.AdminloginConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,9 +80,9 @@ WSGI_APPLICATION = 'sih.wsgi.application'
 DATABASES = {
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'sih_project',  
+        'NAME': 'sample',  
         'USER': 'root',  
-        'PASSWORD': 'lifechanger',  
+        'PASSWORD': 'mohit1234',  
         'HOST': 'localhost',  
         'PORT': '3306',  
         'OPTIONS': {  
