@@ -1,41 +1,52 @@
-from contextlib import redirect_stderr
-import email
-# from ssl import _PasswordType
 from django.shortcuts import render, HttpResponse, redirect
-from django.contrib import auth
+from home.models import Clogin
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import logout, authenticate, login
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 
 def index(request):
     return render(request, "index.html")
 
-# def collegelogin(request):
-#     return render(request, "CollegeLogin.html")
+
+# college works starts here
+
+def collegelogin(request):
+    if request.method=="POST":
+        cid = request.POST.get('cid')
+        password = request.POST.get('password')
+        print(cid, password)
+
+        # check if user has entered correct credentials
+        user = authenticate(username=cid, password=password)
+
+        if user is not None:
+            # A backend authenticated the credentials
+            login(request, user)
+            return redirect("nbaForm.html")
+
+        else:
+            # No backend authenticated the credentials
+            messages.error(request, 'Invalid Credentials!')
+            return render(request, 'CollegeLogin.html')
+
+    return render(request, 'CollegeLogin.html')
+
+def nbaForm(request):
+    return render(request, "nbaForm.html")
+
+def nbaCurrentBranch(request):
+    return render(request, "nbaCurrentBranch.html")
     
-# def adminlogin(request):
-#     return render(request, "AdminLogin.html")
+def nbaNewBranch(request):
+    return render(request, "nbaNewBranch.html")
+
+def nbaReapproval(request):
+    return render(request, "nbaReapproval.html")
 
 
-
-
-
-    # if request.method=='POST':
-    #     email1=request.POST['email']
-    #     password1=request.POST['password']
-    #     x=auth.authenticate(email=email1,password=password1)
-    #     if x is None:
-    #         return redirect("CollegeLogin.html")
-    #     else:
-    #         return redirect('/')
-    # else:
-
-    # if request.method=='POST':
-    #     email1=request.POST['email']
-    #     password1=request.POST['password']
-    #     x=auth.authenticate(email=email1,password=password1)
-    #     if x is None:
-    #         auth.login(request,email)
-    #         return redirect("AdminLogin.html")
-    #     else:
-    #         return redirect('/')
-    # else:
+# Admin works starts here
+def adminlogin(request):
+    return render(request, "AdminLogin.html")
