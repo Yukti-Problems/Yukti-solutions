@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-class Clogin(models.Model):
-    cid = models.CharField(max_length=10)
+class College_Details(models.Model):
+    cid = models.CharField(max_length=20)
     Password = models.CharField(max_length=50)
     cname = models.CharField(max_length=120)
     state = models.CharField(max_length=20)

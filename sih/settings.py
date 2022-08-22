@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'sih.wsgi.application'
 DATABASES = {
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'sih',  
+        'NAME': 'sih_django_project',  
         'USER': 'root',  
         'PASSWORD': 'lifechanger',  
         'HOST': 'localhost',  
@@ -138,5 +138,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
+    # '/var/www/static/',
 ]
