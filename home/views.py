@@ -17,6 +17,7 @@ def collegelogin(request):
     if request.user.is_anonymous:
         if request.method=="POST":
             cid = request.POST.get('cid')
+            request.session['cid'] = cid
             password = request.POST.get('password')
 
             if cid == 'admin' and password == 'admin':
@@ -26,9 +27,6 @@ def collegelogin(request):
 
             # check if user has entered correct credentials
             user = authenticate(username=cid, password=password)
-
-            details = College_Details.objects.get(cid=cid)
-            print(details.nba_aggregated)
 
             if user is not None:
                 # A backend authenticated the credentials
@@ -53,6 +51,10 @@ def nbaForm(request):
         messages.warning(request, 'Please Login First!')
         context = {"variable" : "warning"}
         return redirect("CollegeLogin.html",context) 
+
+    cid = request.session['cid']
+    details = College_Details.objects.get(cid=cid)
+    print(details.nba_aggregated)
     return render(request, "nbaForm.html")
 
 def nbaCurrentBranch(request):

@@ -29,6 +29,13 @@
     <div class="classItem">
     <label for="Branch">Choose a Branch:</label>
 
+    {% comment %} <select name="Branch" id="Branch">
+      {% for bdetails in details %}
+      <option value="{{ details.branch }}">{{ deatils.branch }}</option>
+      {% endfor %}
+    </select>
+    </div> {% endcomment %}
+
     <select name="Branch" id="Branch">
       <option value="Mechanical">Mechanical</option>
       <option value="Civil">Civil</option>
