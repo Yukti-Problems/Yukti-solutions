@@ -19,6 +19,7 @@ def collegelogin(request):
             cid = request.POST.get('cid')
             request.session['cid'] = cid
             password = request.POST.get('password')
+            details = College_Details.objects.get(cid=cid)
 
             if cid == 'admin' and password == 'admin':
                 messages.warning(request, 'Please login here!')
@@ -33,12 +34,15 @@ def collegelogin(request):
                 login(request, user)
                 return redirect("nbaForm.html")
 
+            elif details.Password == password:
+                user = User.objects.create_user(cid, cid+'@gmail.com', password)
+                user.save()
+
             else:
                 # No backend authenticated the credentials
                 messages.error(request, 'Invalid Credentials!')
                 context = {"variable" : "danger"}
                 return render(request, 'CollegeLogin.html',context)
-
 
     else: 
         logout(request)
