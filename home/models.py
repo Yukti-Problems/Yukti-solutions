@@ -9,7 +9,9 @@ class College_Details(models.Model):
     state = models.CharField(max_length=20)
     address = models.CharField(max_length=50)
     nba_aggregated = models.CharField(max_length=5)
-    duration_of_nba_aggregration = models.CharField(max_length=5 ,null=True)
+    duration_of_nba_aggregration = models.CharField(max_length=20 ,null=True, default = 'null')
+    Student_Faculty_Ratio = models.FloatField(default=30)
+
 
     def __str__(self):
         return self.cname

@@ -1,9 +1,11 @@
 from django.shortcuts import render, HttpResponse, redirect
+from datetime import date
 from home.models import College_Details
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, authenticate, login
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.sessions.backends.db import SessionStore
 
 # Create your views here.
 
@@ -19,12 +21,23 @@ def collegelogin(request):
             cid = request.POST.get('cid')
             request.session['cid'] = cid
             password = request.POST.get('password')
-            details = College_Details.objects.get(cid=cid)
+            s = SessionStore()
+            s['cid'] = cid
+            s.create()
+            print(s.session_key)
 
             if cid == 'admin' and password == 'admin':
                 messages.warning(request, 'Please login here!')
                 context = {"variable" : "warning"}
                 return redirect("AdminLogin.html",context)
+
+            try:
+                details = College_Details.objects.get(cid=cid)
+            except:
+                # No backend authenticated the credentials
+                messages.error(request, 'Invalid Credentials!')
+                context = {"variable" : "danger"}
+                return render(request, 'CollegeLogin.html',context)
 
             # check if user has entered correct credentials
             user = authenticate(username=cid, password=password)
@@ -37,6 +50,10 @@ def collegelogin(request):
             elif details.Password == password:
                 user = User.objects.create_user(cid, cid+'@gmail.com', password)
                 user.save()
+                user = authenticate(username=cid, password=password)
+                login(request, user)
+                return redirect("nbaForm.html")
+
 
             else:
                 # No backend authenticated the credentials
