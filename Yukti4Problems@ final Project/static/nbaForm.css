@@ -1,0 +1,9 @@
+.btn {
+    
+    background-color: rgb(234 88 12);
+}
+
+.card:hover {
+    background-color: lightgrey;
+}
+

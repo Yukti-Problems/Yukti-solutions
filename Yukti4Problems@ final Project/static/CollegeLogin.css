@@ -1,0 +1,20 @@
+.myflex {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item1 {
+    justify-content: center;
+    
+}
+
+.div-dark {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.div-gray {
+    
+    color: gray;
+}
